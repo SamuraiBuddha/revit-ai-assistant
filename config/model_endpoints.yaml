@@ -1,0 +1,42 @@
+# Model endpoint configurations for different setups
+
+# LM Studio configuration
+lm_studio:
+  base_url: "http://localhost:1234"
+  models:
+    - name: "llama-3.1-8b-instruct"
+      file: "llama-3.1-8b-instruct.Q5_K_M.gguf"
+    - name: "codellama-13b-instruct"
+      file: "codellama-13b-instruct.Q4_K_M.gguf"
+    - name: "mixtral-8x7b-instruct"
+      file: "mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
+    - name: "mistral-7b-instruct"
+      file: "mistral-7b-instruct-v0.2.Q5_K_M.gguf"
+
+# Ollama configuration
+ollama:
+  base_url: "http://localhost:11434"
+  models:
+    - "llama3.1:8b"
+    - "codellama:13b"
+    - "mixtral:8x7b"
+    - "mistral:7b"
+    - "deepseek-coder:6.7b"
+    - "starcoder2:15b"
+    - "phi3:14b"
+
+# vLLM configuration (for production)
+vllm:
+  base_url: "http://localhost:8000"
+  models:
+    - name: "meta-llama/Llama-3.1-8B-Instruct"
+      gpu_memory_utilization: 0.9
+      max_model_len: 8192
+    - name: "codellama/CodeLlama-13b-Instruct-hf"
+      gpu_memory_utilization: 0.9
+      max_model_len: 16384
+
+# Text Generation WebUI
+text_generation_webui:
+  base_url: "http://localhost:5000"
+  api_key: "optional_key_here"

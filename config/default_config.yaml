@@ -1,0 +1,112 @@
+# Default configuration for Revit AI Assistant
+
+# Model configurations
+models:
+  orchestrator:
+    type: "anthropic"
+    model: "claude-3-opus-20240229"
+    # API key should be in .env or environment variable
+    
+  api_expert:
+    type: "local"
+    endpoint: "http://localhost:1234"
+    model: "codellama-13b-instruct"
+    context_length: 16384
+    
+  dynamo_agent:
+    type: "local"
+    endpoint: "http://localhost:1235"
+    model: "starcoder2-15b"
+    context_length: 8192
+    
+  temporal_chief:
+    type: "local"
+    endpoint: "http://localhost:1234"
+    model: "llama-3.1-8b-instruct"
+    context_length: 8192
+    
+  visibility_agent:
+    type: "local" 
+    endpoint: "http://localhost:1234"
+    model: "mistral-7b-instruct"
+    context_length: 8192
+    
+  export_manager:
+    type: "local"
+    endpoint: "http://localhost:1234"
+    model: "codellama-7b-instruct"
+    context_length: 8192
+    
+  import_manager:
+    type: "local"
+    endpoint: "http://localhost:1234"
+    model: "codellama-7b-instruct"
+    context_length: 8192
+    
+  family_builder:
+    type: "local"
+    endpoint: "http://localhost:1235"
+    model: "deepseek-coder-6.7b"
+    context_length: 16384
+    
+  component_modeler:
+    type: "local"
+    endpoint: "http://localhost:1234"
+    model: "llama-3.1-8b-instruct"
+    context_length: 8192
+    
+  coordinate_manager:
+    type: "local"
+    endpoint: "http://localhost:1236"
+    model: "phi-3-medium-14b"
+    context_length: 16384
+    
+  standards_agent:
+    type: "local"
+    endpoint: "http://localhost:1236"
+    model: "mixtral-8x7b-instruct"
+    context_length: 32768
+
+# Vector database configuration
+vector_db:
+  type: "chromadb"
+  persist_directory: "./chroma_db"
+  embedding_model: "all-MiniLM-L6-v2"
+  
+# Standards database
+standards:
+  data_path: "./src/knowledge/data/standards"
+  index_on_startup: true
+  standards_enabled:
+    - "ASHRAE"
+    - "BICSI"
+    - "ASME"
+    
+# Revit integration
+revit:
+  supported_versions:
+    - "2021"
+    - "2022"
+    - "2023"
+    - "2024"
+  addin_path: "C:\\ProgramData\\Autodesk\\Revit\\Addins"
+  
+# Server configuration
+server:
+  host: "localhost"
+  port: 8765
+  protocol: "websocket"
+  
+# Logging
+logging:
+  level: "INFO"
+  file: "./logs/revit_ai_assistant.log"
+  max_size: "10MB"
+  backup_count: 5
+  
+# Performance
+performance:
+  max_concurrent_agents: 3
+  agent_timeout: 300  # seconds
+  cache_responses: true
+  cache_ttl: 3600  # seconds
