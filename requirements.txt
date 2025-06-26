@@ -1,0 +1,33 @@
+# Core dependencies
+pydantic>=2.0
+pydantic-ai>=0.1.0
+httpx>=0.24.0
+aiofiles>=0.8.0
+python-dotenv>=1.0.0
+PyYAML>=6.0
+
+# LLM and AI
+llama-cpp-python>=0.2.0
+sentence-transformers>=2.2.0
+transformers>=4.30.0
+
+# Vector Database
+chromadb>=0.4.0
+
+# Revit Integration
+pythonnet>=3.0.0  # For .NET interop
+
+# MCP Protocol
+websockets>=11.0
+aioredis>=2.0.0
+
+# Development
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+# Documentation
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
