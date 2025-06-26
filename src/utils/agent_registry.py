@@ -1,7 +1,7 @@
 """Agent registry and management"""
 
 import yaml
-from typing import Dict, Any
+from typing import Dict, Any, List  # Added List import
 import logging
 from pathlib import Path
 
